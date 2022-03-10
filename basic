@@ -1,0 +1,36 @@
+#include<iostream>
+using namespace std;
+
+int main() {
+
+	cout << "\t\t\t\t\t -- Armstrong Numbers --" << endl;
+
+	for (int number = 1; ; number++) {
+
+		int number1s = number;  // for save main input
+		int number2s = number;   // ""
+		int digit = 0;
+
+		while (number1s != 0) {
+			number1s /= 10;
+			digit++;
+		}
+
+		int kuptoplam = 0;   
+
+		for (; digit > 0; digit--) {
+
+			int b = number2s / pow(10, (digit - 1));
+
+			kuptoplam += pow(b, 3);
+			
+			number2s = number2s - (b * (pow(10, (digit - 1))));
+		}
+
+		if (kuptoplam == number) {
+			cout << number << endl;
+		}
+
+	}
+	return 0;
+}
