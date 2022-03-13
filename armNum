@@ -1,0 +1,34 @@
+#include<iostream>
+using namespace std;
+
+int main() {
+
+	for (int number = 1; number < 1000; number++) {
+
+		int number1s = number;  // yedekleme
+		int number2s = number;   // yedekleme
+		int digit = 0;
+
+		while (number1s != 0) {
+			number1s /= 10;     // sayının basamak sayısını öğrenme
+			digit++;
+		}
+
+		int kupToplam = 0;
+
+		for (; digit > 0; digit--) {
+
+			int bas = number2s / pow(10, (digit - 1));       // basamak sayısı kadar 10un kuvvetlerine bölme
+			 
+			kupToplam += pow(bas, 3);                  
+
+			number2s = number2s - (bas * (pow(10, (digit - 1)))); 
+		}
+
+		if (kupToplam == number) {
+			cout << number << endl;
+		}
+
+	}
+	return 0;
+}
